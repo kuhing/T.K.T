@@ -2,7 +2,7 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
-t=`GHSAT0AAAAAACD6ECPZJTP42MPNPVAURC5KZEXXJSQ`
+t="GHSAT0AAAAAACD6ECPZJTP42MPNPVAURC5KZEXXJSQ"
 
 BURIQ () {
     curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps > /root/tmp
