@@ -167,8 +167,6 @@ clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
-wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
-clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
 sleep 2
 clear
@@ -371,49 +369,11 @@ echo "===============-[ Script Created By TARAP KUHING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm -f /root/setup.sh >/dev/null 2>&1
-rm -f /root/ins-xray.sh >/dev/null 2>&1
-rm -f /root/insshws.sh >/dev/null 2>&1
+rm /root/setup.sh >/dev/null 2>&1
+rm /root/ins-xray.sh >/dev/null 2>&1
+rm  /root/insshws.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
 sleep 2
-TIMES="10"
-CHATID="847645599"
-KEY="6208240566:AAFINY02Hij6uwZo1rbgSLoyb4qBeT4p7RA"
-URL="https://api.telegram.org/bot6208240566:AAFINY02Hij6uwZo1rbgSLoyb4qBeT4p7RA/sendMessage"
-curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
-curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
-IP=$(echo $SSH_CLIENT | awk '{print $1}')
-TMPFILE='/tmp/ipinfo-$DATE_EXEC.txt'
-curl http://ipinfo.io/$IP -s -o $TMPFILE
-ORG=$(cat $TMPFILE | jq '.org' | sed 's/"//g')
-domain=$(cat /etc/xray/domain)
-LocalVersion=$(cat /root/versi)
-IPVPS=$(curl -s ipinfo.io/ip )
-ISPVPS=$( curl -s ipinfo.io/org )
-Exp=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | grep $MYIP | awk '{print $3}')
-ISP=$(cat /etc/lokasi/isp)
-CITY=$(cat /etc/lokasi/city)
-domain=$(cat /etc/xray/domain) 
-ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}' | head -1)"
-tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}' | head -1)"
-DATE_EXEC="$(date "+%d %b %Y %H:%M")"
-REGION=$(cat $TMPFILE | jq '.region' | sed 's/"//g')
-COUNTRY=$(cat $TMPFILE | jq '.country' | sed 's/"//g')
-Name=$(curl -sS https://raw.githubusercontent.com/Tarap-Kuhing/ip/main/vps | grep $MYIP | awk '{print $2}')
-MYIP=$(curl -sS ipv4.icanhazip.com)
-TEXT="
-<code>◇━━━━━━━━━━━━━━◇</code>
-<u>⚠️ AUTOSCRIPT INSTALLER ⚠️</b>
-<u>⚠️ TARAP KUHING TUNNELING ⚠️</b>
-<code>◇━━━━━━━━━━━━━━◇</code>
-<code>DOMAIN     : </code><code>${domain}</code>
-<code>LINUX      : </code><code>${MYIP}</code>
-<code>ISP        : </code><code>${ISP}, ${CITY}</code>
-</code>AUTHOR    : </code><code>${Name}</code>
-</code>EXP SCRIPT: </code><code>${Exp}</code>
-<code>◇━━━━━━━━━━━━━━◇</code>
-"
-curl -s --max-time $TIMES -d "chat_id=847645599"&disable_web_page_preview=1&text=$TEXT&parse_mode=html"https://api.telegram.org/bot6208240566:AAFINY02Hij6uwZo1rbgSLoyb4qBeT4p7RA/sendMessage" >/dev/null
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2" -O install-udp && rm -rf /tmp/cookies.txt && chmod +x install-udp && ./install-udp
