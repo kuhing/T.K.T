@@ -162,6 +162,8 @@ mkdir -p /var/lib >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 clear
 echo ""
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
