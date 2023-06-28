@@ -154,9 +154,6 @@ mkdir -p /etc/per
 touch /etc/per/id
 touch /etc/per/token
 mkdir -p /etc/dns
-mkdir -p /etc/slowdns
-touch /etc/slowdns/server.pub
-touch /etc/slowdns/server.key
 mkdir -p /etc/kuhing
 mkdir -p /etc/kuhing/theme
 mkdir -p /var/lib >/dev/null 2>&1
@@ -234,7 +231,7 @@ echo -e "$green      Install SSH / WS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #install Backup
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install BACKUP           $NC"
@@ -369,9 +366,11 @@ echo "===============-[ Script Created By TARAP KUHING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm /root/setup.sh >/dev/null 2>&1
-rm /root/ins-xray.sh >/dev/null 2>&1
-rm /root/insshws.sh >/dev/null 2>&1
+rm -f/root/setup.sh
+rm -f/root/ins-xray.sh
+rm -f/root/ohp.sh
+rm -f/root/installsl.sh
+rm -f/root/installsl.sh
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
