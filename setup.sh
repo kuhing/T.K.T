@@ -83,7 +83,7 @@ echo -e "[ ${tyblue}NOTES${NC} ] I need check your headers first.."
 sleep 2
 echo -e "[ ${green}INFO${NC} ] Checking headers"
 sleep 1
-
+clear
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
@@ -127,6 +127,7 @@ sleep 2
 exit 0
 fi
 sleep 2
+clear
 rm -rf /etc/per
 mkdir -p /etc/{vmess,websocket,vless,trojan,shadowsocks}
 mkdir -p /etc/Tarap-Kuhing/public_html
@@ -162,7 +163,6 @@ mkdir -p /var/lib >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 clear
 echo ""
-#wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
@@ -235,6 +235,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+clear
 #install Backup
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install BACKUP           $NC"
@@ -325,11 +326,10 @@ fi
 curl -sS ifconfig.me > /etc/myipvps
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
-function iinfo(){
 domain=$(cat /etc/xray/domain)
 TIMES="10"
 CHATID="847645599"
-KEY="6208240566:AAFINY02Hij6uwZo1rbgSLoyb4qBeT4p7RA"
+KEY="6161077752:AAF_yCjVqYwfZ0dxli49UNemaAxPuTpJ5oQ"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 ISP=$(cat /etc/lokasi/isp)
 CITY=$(cat /etc/lokasi/city)
@@ -351,7 +351,6 @@ TEXT="
 "
 curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 
-}
 clear
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
