@@ -2,7 +2,7 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
-
+clear
 BURIQ () {
     curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
@@ -127,6 +127,7 @@ rm setup.sh > /dev/null 2>&1
 sleep 2
 exit 0
 fi
+clear
 sleep 2
 rm -rf /etc/per
 mkdir -p /etc/{vmess,websocket,vless,trojan,shadowsocks}
@@ -167,9 +168,6 @@ wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;.
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
 clear
-wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/kuhing;chmod +x kuhing;./kuhing
-rm kuhing
-clear
 yellow "Add Domain for vmess/vless/trojan dll"
 echo " "
 echo -e "$green      Please select a domain type below               $NC"
@@ -187,6 +185,7 @@ echo "$pp" > /etc/v2ray/domain
 echo "IP=$pp" > /var/lib/ipvps.conf
 echo ""
 elif [[ $host == "2" ]]; then
+clear
 #install cf
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
@@ -231,7 +230,8 @@ echo -e "$green      Install SSH / WS               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.shcle
+ar
 #install Backup
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install BACKUP           $NC"
@@ -239,6 +239,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/backup/set-br.sh &&  chmod +x set-br.sh && ./set-br.sh
+clear
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green       Install XRAY              $NC"
@@ -320,6 +321,34 @@ else
 gg="AM"
 fi
 curl -sS ifconfig.me > /etc/myipvps
+curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
+curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
+function iinfo(){
+TIMES="10"
+CHATID="847645599"
+KEY="5985854137:AAHSToaZOGkZfxZLbGwjOqmaRTpJEzHKxhs"
+URL="https://api.telegram.org/bot$KEY/sendMessage"
+ISP=$(cat /etc/lokasi/isp)
+CITY=$(cat /etc/lokasi/city)
+domain=$(cat /etc/xray/domain) 
+MYIP=$(curl -sS ipv4.icanhazip.com)
+IZIN=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | awk '{print 3}' | grep $MYIP)
+TEXT="
+<code>◇━━━━━━━━━━━━━━◇</code>
+<b>  ⚠️ AUTOSCRIPT INSTALLER ⚠️</b>
+<b>     ⚠️ TARAP - KUHING ⚠️</b>
+<code>◇━━━━━━━━━━━━━━◇</code>
+</code>DOMAIN  : </code><code>${domain}</code>
+</code>IP      : </code><code>${MYIP}</code>
+</code>ISP     : </code><code>${ISP}</code>
+</code>CITY    : </code><code>${CITY}</code>
+</code>NAME    : </code><code>${Name}</code>
+</code>EXP     : </code><code>${IZIN}</code>
+<code>◇━━━━━━━━━━━━━━◇</code>
+"
+curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
+clear
+}
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
 echo ""
@@ -366,11 +395,11 @@ echo "===============-[ Script Created By TARAP KUHING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm -f/root/setup.sh
-rm -f/root/ins-xray.sh
-rm -f/root/ohp.sh
-rm -f/root/installsl.sh
-rm -f/root/installsl.sh
+rm -f /root/setup.sh
+rm -f /root/ins-xray.sh
+rm -f /root/ohp.sh
+rm -f /root/installsl.sh
+rm -f /root/ssh-vpn.sh
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
