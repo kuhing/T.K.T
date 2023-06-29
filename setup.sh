@@ -2,7 +2,6 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 #########################
-clear
 BURIQ () {
     curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps > /root/tmp
     data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
@@ -48,7 +47,6 @@ PERMISSION () {
     BURIQ
 }
 
-clear
 red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
@@ -231,7 +229,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.shcle
-ar
+clear
 #install Backup
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install BACKUP           $NC"
