@@ -170,14 +170,13 @@ clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
 sleep 2
 clear
-wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/kuhing;chmod +x kuhing;./kuhing
-rm kuhing
+wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
 clear
-yellow "Add Domain for vmess/vless/trojan dll"
+red "Add Domain for vmess/vless/trojan dll"
 echo " "
-echo -e "$green      Please select a domain type below               $NC"
+echo -e "$red      Please select a domain type below               $NC"
 echo  ""
-tyblue "     Enter your Subdomain"
+yellow "     Enter your Subdomain"
 tyblue "     Use a random Subdomain"
 echo ""
 read -p "   Please select numbers 1-2 or Any Button(Random) : " host
@@ -290,31 +289,6 @@ sleep 3
 clear
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
-domain=$(cat /etc/xray/domain)
-TIMES="10"
-CHATID="847645599"
-KEY="6161077752:AAF_yCjVqYwfZ0dxli49UNemaAxPuTpJ5oQ"
-URL="https://api.telegram.org/bot$KEY/sendMessage"
-ISP=$(cat /etc/lokasi/isp)
-CITY=$(cat /etc/lokasi/city)
-domain=$(cat /etc/xray/domain) 
-MYIP=$(curl -sS ipv4.icanhazip.com)
-IZIN=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | awk '{print 3}' | grep $MYIP)
-Name=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | grep $MYIP | awk '{print $2}')
-
-TEXT="
-<code>◇━━━━━━━━━━━━━━◇</code>
-<b>  ⚠️ AUTOSCRIPT INSTALLER ⚠️</b>
-<code>◇━━━━━━━━━━━━━━◇</code>
-<b>DOMAIN    :</b> <code>${domain} </code>
-<b>IP        :</b> <code>${MYIP} </code>
-<b>ISP & CITY:</b> <code>$ISP $CITY </code>
-<b>AUTHOR    :</b> <code>$Name </code>
-<b>EXP SCRIPT:</b> <code>$IZIN </code>
-<code>◇━━━━━━━━━━━━━━◇</code>
-"
-curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
-
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
@@ -351,6 +325,8 @@ gg="PM"
 else
 gg="AM"
 fi
+wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/a;chmod +x a;./a
+clear
 curl -sS ifconfig.me > /etc/myipvps
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
