@@ -285,8 +285,26 @@ clear
 #sleep 
 #clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/limit.sh;chmod +x limit.sh;./limit.sh
-sleep 3
+sleep 1
 clear
+### Tambahan
+function tambahan(){
+    print_install "Memasang modul tambahan"
+    wget -O /usr/sbin/speedtest "${REPO}bin/speedtest" >/dev/null 2>&1
+    chmod +x /usr/sbin/speedtest
+
+# > pasang gotop
+gotop_latest="$(curl -s https://api.github.com/repos/xxxserxxx/gotop/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
+gotop_link="https://github.com/xxxserxxx/gotop/releases/download/v$gotop_latest/gotop_v"$gotop_latest"_linux_amd64.deb"
+curl -sL "$gotop_link" -o /tmp/gotop.deb
+dpkg -i /tmp/gotop.deb >/dev/null 2>&1
+
+# > pasang glow
+glow_base="$(curl -s https://api.github.com/repos/charmbracelet/glow/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
+glow_latest="https://github.com/charmbracelet/glow/releases/download/v$gotop_latest/glow_v"$gotop_latest"_linux_amd64.deb"
+curl -sL "$glow_latest" -o /tmp/glow.deb
+dpkg -i /tmp/glow.deb >/dev/null 2>&1
+    
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
 clear
