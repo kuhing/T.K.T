@@ -271,7 +271,7 @@ sleep 2
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif.sh;chmod +x notif.sh;./notif.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif;chmod +x notif;./notif
 sleep 3
 clear
 #install limit xray
@@ -321,33 +321,6 @@ fi
 curl -sS ifconfig.me > /etc/myipvps
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
-function iinfo(){
-domain=$(cat /etc/xray/domain)
-TIMES="10"
-CHATID="847645599"
-KEY="6208240566:AAFINY02Hij6uwZo1rbgSLoyb4qBeT4p7RA"
-URL="https://api.telegram.org/bot$KEY/sendMessage"
-ISP=$(cat /etc/lokasi/isp)
-CITY=$(cat /etc/lokasi/city)
-domain=$(cat /etc/xray/domain) 
-MYIP=$(curl -sS ipv4.icanhazip.com)
-IZIN=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | awk '{print 3}' | grep $MYIP)
-Name=$(curl -sS https://raw.githubusercontent.com/kuhing/ip/main/vps | grep $MYIP | awk '{print $2}')
-
-TEXT="
-<code>◇━━━━━━━━━━━━━━◇</code>
-<b>  ⚠️ AUTOSCRIPT INSTALLER ⚠️</b>
-<code>◇━━━━━━━━━━━━━━◇</code>
-<b>DOMAIN    :</b> <code>${domain} </code>
-<b>IP        :</b> <code>${MYIP} </code>
-<b>ISP & CITY:</b> <code>$ISP $CITY </code>
-<b>AUTHOR    :</b> <code>$Name </code>
-<b>EXP SCRIPT:</b> <code>$IZIN </code>
-<code>◇━━━━━━━━━━━━━━◇</code>
-"
-curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
-
-}
 clear
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
