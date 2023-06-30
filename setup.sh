@@ -275,7 +275,7 @@ sleep 2
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif.sh;chmod +x notif.sh;./notif.sh
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif;chmod +x notif;./notif
 sleep 3
 clear
 #install limit xray
