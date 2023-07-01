@@ -164,8 +164,8 @@ rm tools.sh
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
 clear
-#wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
-#clear
+wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
+clear
 yellow "Add Domain for vmess/vless/trojan dll"
 echo " "
 echo -e "$green      Please select a domain type below               $NC"
