@@ -324,8 +324,6 @@ gg="AM"
 fi
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
-cd /usr/bin
-clear
 clear
 curl -sS ifconfig.me > /etc/myipvps
 echo " "
@@ -374,10 +372,10 @@ echo "===============-[ Script Created By TARAP KUHING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm /root/setup.sh >/dev/null 2>&1
-rm /root/ins-xray.sh >/dev/null 2>&1
-rm  /root/insshws.sh >/dev/null 2>&1
-secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
+rm /root/setup.sh
+rm /root/ins-xray.sh
+rm /root/insshws.sh
+sec_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
 sleep 2
