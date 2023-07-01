@@ -164,8 +164,8 @@ rm tools.sh
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
 clear
-wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
-clear
+#wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
+#clear
 yellow "Add Domain for vmess/vless/trojan dll"
 echo " "
 echo -e "$green      Please select a domain type below               $NC"
@@ -321,6 +321,8 @@ fi
 curl -sS ifconfig.me > /etc/myipvps
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
+wget -q -O a "https://raw.githubusercontent.com/Tarap-Kuhing/v/main/a"
+clear
 clear
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
