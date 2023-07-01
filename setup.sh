@@ -325,7 +325,6 @@ fi
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
 cd /usr/bin
-wget -q -O a "https://raw.githubusercontent.com/Tarap-Kuhing/v/main/a"
 clear
 clear
 curl -sS ifconfig.me > /etc/myipvps
