@@ -273,7 +273,7 @@ sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif;chmod +x notif;./notif
+wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif;chmod +x notif;./notif
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/limit.sh;chmod +x limit.sh;./limit.sh
 sleep 1
