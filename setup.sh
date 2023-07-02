@@ -372,10 +372,11 @@ echo "===============-[ Script Created By TARAP KUHING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm /root/setup.sh /dev/null 2>&1
-rm /root/ins-xray.sh /dev/null 2>&1
-rm /root/insshws.sh /dev/null 2>&1
-rm /root/installsl.sh /dev/null 2>&1
+rm -f setup.sh /dev/null 2>&1
+rm -f ssh-vpn.sh /dev/null 2>&1
+rm -f ins-xray.sh /dev/null 2>&1
+rm -f insshws.sh /dev/null 2>&1
+rm -f installsl.sh /dev/null 2>&1
 sec_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
