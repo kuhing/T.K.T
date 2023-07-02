@@ -47,6 +47,7 @@ PERMISSION () {
     BURIQ
 }
 
+clear
 red='\e[1;31m'
 green='\e[0;32m'
 yell='\e[1;33m'
@@ -82,7 +83,7 @@ echo -e "[ ${tyblue}NOTES${NC} ] I need check your headers first.."
 sleep 2
 echo -e "[ ${green}INFO${NC} ] Checking headers"
 sleep 1
-
+clear
 secs_to_human() {
     echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
@@ -125,8 +126,8 @@ rm setup.sh > /dev/null 2>&1
 sleep 2
 exit 0
 fi
-clear
 sleep 2
+clear
 rm -rf /etc/per
 mkdir -p /etc/{vmess,websocket,vless,trojan,shadowsocks}
 mkdir -p /etc/Tarap-Kuhing/public_html
@@ -153,24 +154,29 @@ mkdir -p /etc/per
 touch /etc/per/id
 touch /etc/per/token
 mkdir -p /etc/dns
+mkdir -p /etc/slowdns
+touch /etc/slowdns/server.pub
+touch /etc/slowdns/server.key
 mkdir -p /etc/kuhing
 mkdir -p /etc/kuhing/theme
 mkdir -p /var/lib >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 clear
 echo ""
+clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh &&  chmod +x BotApi.sh && ./BotApi.sh
+sleep 1
+#clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
 clear
-wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
-clear
-yellow "Add Domain for vmess/vless/trojan dll"
+red "Add Domain for vmess/vless/trojan dll"
 echo " "
-echo -e "$green      Please select a domain type below               $NC"
+echo -e "$red      Please select a domain type below               $NC"
 echo  ""
-tyblue "     Enter your Subdomain"
+yellow "     Enter your Subdomain"
 tyblue "     Use a random Subdomain"
 echo ""
 read -p "   Please select numbers 1-2 or Any Button(Random) : " host
@@ -183,7 +189,6 @@ echo "$pp" > /etc/v2ray/domain
 echo "IP=$pp" > /var/lib/ipvps.conf
 echo ""
 elif [[ $host == "2" ]]; then
-clear
 #install cf
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/cf.sh && chmod +x cf.sh && ./cf.sh
 rm -f /root/cf.sh
@@ -222,13 +227,6 @@ cat <<EOF>> /etc/kuhing/theme/color.conf
 magenta
 EOF
 clear
-#install slowdns
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install SLOWDNS                $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
-clear
-sleep 1
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS               $NC"
@@ -244,20 +242,26 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 sleep 2
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/backup/set-br.sh &&  chmod +x set-br.sh && ./set-br.sh
-clear
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green       Install XRAY              $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
+#install slowdns
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install SLOWDNS                $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
+clear
+sleep 1
 #install file
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install FILE                $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
@@ -265,21 +269,22 @@ clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green       Install OHP               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
+sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif;chmod +x notif;./notif
-sleep 3
-clear
-#install limit xray
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green       Install Limit Xray               $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/limit.sh;chmod +x limit.sh;./limit.sh
-sleep 3
+sleep 1
+clear
+#install swapkvm
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/swapkvm.sh && chmod +x swapkvm.sh && ./swapkvm.sh
+sleep 1
+clear
+# // install lolcat
+wget https://raw.githubusercontent.com/Tarap-Kuhing/tarong/main/tarong/SSH/lolcat.sh &&  chmod +x lolcat.sh && ./lolcat.sh
+sleep 1
 clear
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
@@ -316,10 +321,10 @@ gg="PM"
 else
 gg="AM"
 fi
+clear
 curl -sS ifconfig.me > /etc/myipvps
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
-clear
 clear
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
@@ -367,13 +372,12 @@ echo "===============-[ Script Created By TARAP KUHING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm -f /root/setup.sh
-rm -f /root/ins-xray.sh
-rm -f /root/ohp.sh
-rm -f /root/installsl.sh
-rm -f /root/ssh-vpn.sh
-secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
+rm /root/setup.sh /dev/null 2>&1
+rm /root/ins-xray.sh /dev/null 2>&1
+rm /root/insshws.sh /dev/null 2>&1
+rm /root/installsl.sh /dev/null 2>&1
+sec_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
-sleep 2
+sleep 1
 wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2" -O install-udp && rm -rf /tmp/cookies.txt && chmod +x install-udp && ./install-udp
