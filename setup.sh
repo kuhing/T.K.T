@@ -167,8 +167,8 @@ clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/tools.sh;chmod +x tools.sh;./tools.sh
 rm tools.sh
 clear
-#wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh;chmod +x BotApi.sh;./BotApi.sh
-#sleep 2
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh &&  chmod +x BotApi.sh && ./BotApi.sh
+sleep 1
 #clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
 clear
@@ -227,13 +227,6 @@ cat <<EOF>> /etc/kuhing/theme/color.conf
 magenta
 EOF
 clear
-#install slowdns
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install SLOWDNS                $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
-clear
-sleep 1
 #install ssh ovpn
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install SSH / WS               $NC"
@@ -257,6 +250,13 @@ sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
+#install slowdns
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install SLOWDNS                $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
+clear
+sleep 1
 #install file
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install FILE                $NC"
@@ -274,17 +274,16 @@ clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif;chmod +x notif;./notif
-sleep 1
-#OpenVPN
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 clear
-#install limit xray
-#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "$green       Install Limit Xray               $NC"
-#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#sleep 
-#clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/limit.sh;chmod +x limit.sh;./limit.sh
+sleep 1
+clear
+#install swapkvm
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/swapkvm.sh && chmod +x swapkvm.sh && ./swapkvm.sh
+sleep 1
+clear
+# // install lolcat
+wget https://raw.githubusercontent.com/Tarap-Kuhing/tarong/main/tarong/SSH/lolcat.sh &&  chmod +x lolcat.sh && ./lolcat.sh
 sleep 1
 clear
 cat> /root/.profile << END
@@ -322,10 +321,11 @@ gg="PM"
 else
 gg="AM"
 fi
+clear
+curl -sS ifconfig.me > /etc/myipvps
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
 clear
-curl -sS ifconfig.me > /etc/myipvps
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
 echo ""
