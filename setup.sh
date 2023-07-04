@@ -286,10 +286,11 @@ clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/tarong/main/tarong/SSH/lolcat.sh && chmod +x lolcat.sh && ./lolcat.sh
 sleep 1
 clear
-#install File Tambahan
+#install File Menu
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green       Install Tambahan               $NC"
+echo -e "$green       INSTALL FILE MENU               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+sleep 2
 wget https://raw.githubusercontent.com/kuhing/update.sh/update.sh/update.sh && chmod +x update.sh && ./update.sh
 sleep 2
 clear
@@ -379,11 +380,14 @@ echo "===============-[ Script Created By TARAP KUHING ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
-rm -f setup.sh /dev/null 2>&1
-rm -f ssh-vpn.sh /dev/null 2>&1
-rm -f ins-xray.sh /dev/null 2>&1
-rm -f insshws.sh /dev/null 2>&1
-rm -f installsl.sh /dev/null 2>&1
+rm /root/setup.sh >/dev/null 2>&1
+rm /root/ssh-vpn.sh >/dev/null 2>&1
+rm /root/ins-xray.sh >/dev/null 2>&1
+rm /root/insshws.sh >/dev/null 2>&1
+rm /root/set-br.sh >/dev/null 2>&1
+rm /root/ohp.sh >/dev/null 2>&1
+rm /root/update.sh >/dev/null 2>&1
+rm /root/slowdns.sh >/dev/null 2>&1
 sec_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
