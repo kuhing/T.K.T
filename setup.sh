@@ -126,6 +126,9 @@ rm setup.sh > /dev/null 2>&1
 sleep 2
 exit 0
 fi
+secs_to_human() {
+echo -e "${WB}Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds${NC}"
+}
 sleep 2
 clear
 rm -rf /etc/per
@@ -172,7 +175,7 @@ sleep 1
 #clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
 clear
-red "Add Domain for vmess/vless/trojan dll"
+purple "Add Domain for vmess/vless/trojan dll"
 echo " "
 echo -e "$red      Please select a domain type below               $NC"
 echo  ""
@@ -236,10 +239,10 @@ clear
 wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
 #install slowdns
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install SLOWDNS                $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#echo -e "$green      Install SLOWDNS                $NC"
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
 clear
 sleep 1
 #install Backup
@@ -273,7 +276,7 @@ sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif && chmod +x notif && ./notif
+#wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif && chmod +x notif && ./notif
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/limit.sh;chmod +x limit.sh;./limit.sh
 sleep 1
@@ -388,7 +391,7 @@ rm /root/set-br.sh >/dev/null 2>&1
 rm /root/ohp.sh >/dev/null 2>&1
 rm /root/update.sh >/dev/null 2>&1
 rm /root/slowdns.sh >/dev/null 2>&1
-sec_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
+secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
 sleep 1
