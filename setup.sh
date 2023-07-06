@@ -158,8 +158,6 @@ touch /etc/per/id
 touch /etc/per/token
 mkdir -p /etc/dns
 mkdir -p /etc/slowdns
-touch /etc/slowdns/server.pub
-touch /etc/slowdns/server.key
 mkdir -p /etc/kuhing
 mkdir -p /etc/kuhing/theme
 mkdir -p /var/lib >/dev/null 2>&1
@@ -172,8 +170,6 @@ rm tools.sh
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/menu/BotApi.sh &&  chmod +x BotApi.sh && ./BotApi.sh
 sleep 1
-#clear
-wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/api;chmod +x api;./api
 clear
 purple "Add Domain for vmess/vless/trojan dll"
 echo " "
@@ -238,19 +234,6 @@ sleep 1
 clear
 wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
-#install slowdns
-#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#echo -e "$green      Install SLOWDNS                $NC"
-#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-#wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
-clear
-sleep 1
-#install Backup
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green      Install BACKUP           $NC"
-echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-sleep 2
-clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/backup/set-br.sh &&  chmod +x set-br.sh && ./set-br.sh
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -260,6 +243,13 @@ sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
+#install slowdns
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#echo -e "$green      Install SLOWDNS                $NC"
+#echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+#wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/wireguard/installsl.sh && chmod +x installsl.sh && ./installsl.sh
+clear
+sleep 1
 #install file
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green      Install FILE                $NC"
@@ -276,7 +266,7 @@ sleep 1
 clear
 wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
-#wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/notif && chmod +x notif && ./notif
+wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/OPENVPN/vpn.sh && chmod +x vpn.sh && ./vpn.sh
 clear
 wget -q https://raw.githubusercontent.com/Tarap-Kuhing/v/main/ssh/limit.sh;chmod +x limit.sh;./limit.sh
 sleep 1
@@ -295,6 +285,12 @@ echo -e "$green       INSTALL FILE MENU               $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 wget https://raw.githubusercontent.com/kuhing/update.sh/update.sh/update.sh && chmod +x update.sh && ./update.sh
+sleep 2
+clear
+#install Backup
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+echo -e "$green      Install BACKUP           $NC"
+echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
 cat> /root/.profile << END
@@ -384,13 +380,6 @@ echo -e ""
 echo ""
 echo "" | tee -a log-install.txt
 rm /root/setup.sh >/dev/null 2>&1
-rm /root/ssh-vpn.sh >/dev/null 2>&1
-rm /root/ins-xray.sh >/dev/null 2>&1
-rm /root/insshws.sh >/dev/null 2>&1
-rm /root/set-br.sh >/dev/null 2>&1
-rm /root/ohp.sh >/dev/null 2>&1
-rm /root/update.sh >/dev/null 2>&1
-rm /root/slowdns.sh >/dev/null 2>&1
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 echo -e ""
 echo "===============-[ INSTALL SSH UDP & REBOOT ]-==============="
