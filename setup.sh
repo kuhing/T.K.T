@@ -234,7 +234,6 @@ sleep 1
 clear
 wget https://raw.githubusercontent.com/jambanbkn/ssh-vpn.sh/ssh-vpn.sh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
-wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/backup/set-br.sh &&  chmod +x set-br.sh && ./set-br.sh
 #Instal Xray
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "$green       Install XRAY              $NC"
@@ -291,6 +290,9 @@ echo -e "$green      Install BACKUP           $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
 clear
+wget https://raw.githubusercontent.com/Tarap-Kuhing/v/main/backup/set-br.sh &&  chmod +x set-br.sh && ./set-br.sh
+clear
+
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
 
@@ -330,6 +332,22 @@ clear
 curl -sS ifconfig.me > /etc/myipvps
 curl -s ipinfo.io/city?token=75082b4831f909 >> /etc/lokasi/city
 curl -s ipinfo.io/org?token=75082b4831f909  | cut -d " " -f 2-10 >> /etc/lokasi/isp
+domain=$(cat /etc/xray/domain)
+LocalVersion=$(cat /root/versi)
+IPVPS=$(curl -s ipinfo.io/ip )
+ISPVPS=$( curl -s ipinfo.io/org )
+token="6161077752:AAF_yCjVqYwfZ0dxli49UNemaAxPuTpJ5oQ"
+chatid="847645599"
+if [ -n "$SSH_CLIENT" ] && [ -z "$TMUX" ]; then
+
+ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}' | head -1)"
+tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}' | head -1)"
+DATE_EXEC="$(date "+%d %b %Y %H:%M")"
+CITY=$(cat $TMPFILE | jq '.city' | sed 's/"//g')
+REGION=$(cat $TMPFILE | jq '.region' | sed 's/"//g')
+COUNTRY=$(cat $TMPFILE | jq '.country' | sed 's/"//g')
+curl -s --max-time  -d chat_id="$chatid" -d text="$IPVPS domain $domain telah install script Tarap Kuhing Tunneling pada $DATE_EXEC di $CITY, $REGION " https://api.telegram.org/bot$token/sendMessage > /dev/null 2>&1
+fi
 clear
 echo " "
 echo "=====================-[ SCRIPT TARAP KUHING ]-===================="
